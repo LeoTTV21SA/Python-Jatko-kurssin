@@ -1,10 +1,4 @@
-"""class Point:
-    #Implement the class here
-    
-#Write test software under this if
-if __name__ == "__main__":
-    pass
-"""
+
 class Point:
     # Static counter to track getter calls
     _getter_count = 0

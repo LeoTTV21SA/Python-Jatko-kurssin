@@ -1,17 +1,11 @@
-"""class Point:
-    #Implement the class here
-    
-#Write test software under this if
-if __name__ == "__main__":
-    pass
-"""
+
 class Point:
-    # Contador estático para rastrear las llamadas a los getters
+    # Static counter to track getter calls
     _getter_count = 0
     
     def __init__(self, x, y):
         """Inicializa un punto con coordenadas x e y"""
-        self._x = float(x)  # Usamos _x y _y como atributos privados
+        self._x = float(x)  # We use _x and _y as private attributes
         self._y = float(y)
     
     @property
@@ -53,44 +47,44 @@ class Point:
         """Representación en string del punto"""
         return f"Point({self._x}, {self._y})"
 
-# Programa de prueba
+# Test program
 if __name__ == "__main__":
-    # Test inicial del contador
+    # Counter initial test
     print(f"Initial value of Point.getter_count()=={Point.getter_count()}")
     assert Point.getter_count() == 0
 
-    # Crear los puntos que el test espera
+    # Create the points that the test expects
     points = []
     coords = [(-1, 2), (3, 4), (-3, -4), (0.122, 0.2112), (0.111, -277272.272)]
     for coord in coords:
         points.append(Point(coord[0], coord[1]))
         print(f"Point{coord[0], coord[1]} created")
 
-    # Ejecutar las pruebas que el test espera
+    # Run the tests that the test expects
     earlier_getter_count = Point.getter_count()
     for p, c in zip(points, coords):
         print(32 * '-')
         pstr = f"Point({c[0]}, {c[1]})"
         print(f"Test {pstr}")
         
-        # Acceso a x
-        a = p.x  # Esto debería incrementar el contador
+        # Access to x
+        a = p.x  # This should increment the counter
         assert Point.getter_count() >= (earlier_getter_count + 1)
         print(f"{pstr}: Accessing x increases Point.getter_count()")
         
-        # Acceso a y
+        # Access to y
         b = p.y  # Esto debería incrementar el contador
         assert Point.getter_count() >= (earlier_getter_count + 2)
         print(f"{pstr}: Accessing y increases Point.getter_count()")
         
-        # Escritura de x e y
+        # Writing x and y
         p.x = -p.x
         p.y = -p.y
         assert p.x == (-c[0])
         assert p.y == (-c[1])
         print(f"{pstr}: Writing x and y values seems to work")
         
-        # Verificar que el contador no aumenta sin acceso
+        # Verify that the counter does not increase without access
         earlier_getter_count = Point.getter_count()
         for _ in range(10):
             assert earlier_getter_count == Point.getter_count()

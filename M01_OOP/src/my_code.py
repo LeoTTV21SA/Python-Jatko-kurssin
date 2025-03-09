@@ -1,67 +1,4 @@
-import sys
-import time
-"""
-HINT:
-(0+1)%10=1
-(1+2)%10=3
-(9+4)%10=3
-Therefore, with NumericStrings, 124+19=133
 
-(0*1)%10=0
-(1*2)%10=2
-(9*4)%10=6
-Therefore, with NumericStrings, 124+19=26
-"""
-
-
-"""class NumericString:
-    #Implement class here!
-
- def __init__(self, value):
-        if value < 0:
-            raise ValueError("Negative values are not allowed")
-        self.value = str(value)
-    
-def __str__(self):
-        return self.value
-    
-def __add__(self, other):
-        # Convertimos ambos valores a listas de dígitos
-        num1 = list(self.value.zfill(max(len(self.value), len(other.value))))
-        num2 = list(other.value.zfill(max(len(self.value), len(other.value))))
-        
-        # Realizamos la suma dígito por dígito
-        result = ''
-        for d1, d2 in zip(num1, num2):
-            result += str((int(d1) + int(d2)) % 10)
-            
-        # Quitamos ceros a la izquierda si los hay
-        result = result.lstrip('0') or '0'
-        return NumericString(int(result))
-    
-def __mul__(self, other):
-        # Convertimos ambos valores a listas de dígitos
-        num1 = list(self.value.zfill(max(len(self.value), len(other.value))))
-        num2 = list(other.value.zfill(max(len(self.value), len(other.value))))
-        
-        # Realizamos la multiplicación dígito por dígito
-        result = ''
-        for d1, d2 in zip(num1, num2):
-            result += str((int(d1) * int(d2)) % 10)
-            
-        # Quitamos ceros a la izquierda si los hay
-        result = result.lstrip('0') or '0'
-        return NumericString(int(result))
-        
-
-if __name__ == "__main__":
-    #Sample test program you can use to test your implementation
-
-    #Create test objects and test value limit
-    o16=NumericString(16)
-    try:
-  
-        assert False"""
 
 import sys
 import time
@@ -109,7 +46,7 @@ class NumericString:
         return NumericString(int(result))
  # Sample test program you can use to test your implementation
 if __name__ == "__main__":
-    #Create test objects and test value limit
+    #Luo testiobjekteja ja testausarvoraja
     o16 = NumericString(16)
     try:
         print('Initializing with negative integer...', end=' ')

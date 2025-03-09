@@ -4,47 +4,47 @@ class Point:
     _getter_count = 0
     
     def __init__(self, x, y):
-        """Inicializa un punto con coordenadas x e y"""
+      # Alusta piste x- ja y-koordinaateilla
         self._x = float(x)  # We use _x and _y as private attributes
         self._y = float(y)
     
     @property
     def x(self):
-        """Propiedad para x: incrementa el contador al leer"""
+      # Ominaisuus x:lle: lisää laskuria luettaessa
         Point._getter_count += 1
         return self._x
     
     @x.setter
     def x(self, value):
-        """Setter para x: permite escritura"""
+       # Setteri x:lle: sallii kirjoittamisen
         self._x = float(value)
     
     @property
     def y(self):
-        """Propiedad para y: incrementa el contador al leer"""
+    # Ominaisuus y:lle: lisää laskuria luettaessa
         Point._getter_count += 1
         return self._y
     
     @y.setter
     def y(self, value):
-        """Setter para y: permite escritura"""
+        # Setter for y: sallii kirjoittamisen
         self._y = float(value)
     
     def get_x(self):
-        """Devuelve la coordenada x (también incrementa el contador vía propiedad)"""
+      # Palauttaa x-koordinaatin (lisää myös laskuria ominaisuuden kautta)
         return self.x
     
     def get_y(self):
-        """Devuelve la coordenada y (también incrementa el contador vía propiedad)"""
+        # Palauttaa y-koordinaatin (lisää myös laskuria ominaisuuden kautta)
         return self.y
     
     @classmethod
     def getter_count(cls):
-        """Devuelve el número de veces que se han llamado los getters"""
+       # Palauttaa kuinka monta kertaa getteriä on kutsuttu
         return cls._getter_count
     
     def __str__(self):
-        """Representación en string del punto"""
+     # Pisteen merkkijonoesitys
         return f"Point({self._x}, {self._y})"
 
 # Test program
@@ -73,7 +73,7 @@ if __name__ == "__main__":
         print(f"{pstr}: Accessing x increases Point.getter_count()")
         
         # Access to y
-        b = p.y  # Esto debería incrementar el contador
+        b = p.y  # Tämän pitäisi kasvattaa laskuria
         assert Point.getter_count() >= (earlier_getter_count + 2)
         print(f"{pstr}: Accessing y increases Point.getter_count()")
         
